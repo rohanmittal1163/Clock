@@ -1,0 +1,101 @@
+*::after,
+*,
+*::before {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+	background-color: white;
+}
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: -3;
+}
+.clock {
+	background-color: white;
+	border-radius: 100%;
+	box-shadow: 0 26px 58px 0 rgba(0, 0, 0, 0.22),
+		0 5px 14px 0 rgba(0, 0, 0, 0.18);
+	width: 400px;
+	aspect-ratio: 1/1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	z-index: -2;
+}
+
+.clock label {
+	position: absolute;
+	display: inline-block;
+	inset: 20px;
+	transform: rotate(calc(var(--i) * (360deg / 12)));
+	text-align: center;
+}
+.clock label span {
+	display: inline-block;
+	transform: rotate(calc(var(--i) * (-360deg / 12)));
+	font-weight: bolder;
+	font-size: 20px;
+}
+.indicator {
+	position: absolute;
+	background-color: red;
+	width: 18px;
+	border-radius: 100%;
+	aspect-ratio: 1/1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.indicator::before {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	aspect-ratio: 1/1;
+	border-radius: 100%;
+	background-color: black;
+	z-index: 100;
+}
+.indicator .seconds {
+	background-color: black;
+	width: 2px;
+	height: 150px;
+	transform-origin: 50% 122px;
+	position: absolute;
+	bottom: -18px;
+	z-index: -1;
+	border-radius: 10px;
+}
+.indicator .minute {
+	background-color: rgb(233, 91, 233);
+	position: absolute;
+	border-radius: 10px;
+	width: 4px;
+	height: 120px;
+	bottom: 9px;
+	transform-origin: bottom;
+}
+
+.indicator .hour {
+	border-radius: 10px;
+	transform-origin: bottom;
+	z-index: -1;
+	background-color: dodgerblue;
+	position: absolute;
+	width: 8px;
+	height: 90px;
+	bottom: 9px;
+	transform-origin: bottom;
+	/* rotate: 10deg; */
+}
